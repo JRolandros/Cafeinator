@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="Cafeinator.App.Views.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Cafeinator.App.Views"
+             xmlns:cmd="http://www.galasoft.ch/mvvmlight"
+             xmlns:ie="http://schemas.microsoft.com/expression/2010/interactivity"
+             mc:Ignorable="d"
+             d:DesignWidth="400"
+             DataContext="{Binding MenuVM ,Source={StaticResource Locator}}">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="60" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="10" />
+      <ColumnDefinition Width="*" />
+      <ColumnDefinition Width="10" />
+    </Grid.ColumnDefinitions>
+
+    <TextBlock Text="Choisir la boisson :"
+               Grid.Column="1"
+               />
+    <ListBox Name="drinks"
+             Grid.Row="1"
+             Grid.Column="1"
+             Grid.ColumnSpan="2"
+             BorderBrush="Transparent"
+             Margin="10"
+             SelectionMode="Single"
+             SelectedItem="{Binding SelectedDrink}"
+             ItemsSource="{Binding Drinks}">
+      <ListBox.ItemTemplate>
+        <DataTemplate>
+          <CheckBox FlowDirection="RightToLeft"
+                    Margin="10,5"
+                    Content="{Binding DrkLabel}"
+                    IsChecked="{Binding IsDrinkSelected}"
+                    Style="{StaticResource SwitchStyle}">
+            <ie:Interaction.Triggers>
+              <ie:EventTrigger EventName="Checked">
+                <ie:InvokeCommandAction Command="{Binding DataContext.CheckedCommand, ElementName=drinks}"
+                                        CommandParameter="{Binding}" />
+              </ie:EventTrigger>
+              <ie:EventTrigger EventName="Unchecked">
+                <ie:InvokeCommandAction Command="{Binding DataContext.UnCheckedCommand, ElementName=drinks}"
+                                        CommandParameter="{Binding}" />
+              </ie:EventTrigger>
+            </ie:Interaction.Triggers>
+          </CheckBox>
+        </DataTemplate>
+      </ListBox.ItemTemplate>
+
+    </ListBox>
+
+    <TextBlock Grid.Row="2"
+               Grid.Column="1">
+      <Run Text="Du sucre ?" />
+      <Run Text="Quantite :" />
+      <Run Text="{Binding SugarQty}" />
+      <Run Text="(mg)" />
+    </TextBlock>
+    <StackPanel Orientation="Horizontal"
+                Grid.Row="3"
+                HorizontalAlignment="Stretch"
+                Grid.Column="1">
+      <Button Style="{StaticResource TransparentStyle}"
+              Content="-"
+              HorizontalAlignment="Left"
+              FontSize="20"
+              Command="{Binding RemoveSugarCommand}"/>
+      <Slider Maximum="5"
+              Foreground="Black"
+              IsSnapToTickEnabled="True"
+              TickFrequency="1"
+              Orientation="Horizontal"
+              Value="{Binding SugarQty}"
+              Background="Gray"
+              Height="10"
+              Margin="10,-1,10,0"
+              Width="300"
+              Style="{StaticResource Horizontal_Slider}"
+              Minimum="0" HorizontalAlignment="Stretch"/>
+      <Button Style="{StaticResource TransparentStyle}" Content="+" HorizontalAlignment="Right" FontSize="20" Command="{Binding AddSugarCommand}"/>
+    </StackPanel>
+
+    <Button Content="Se Servir !"
+            Grid.Column="1"
+            Grid.Row="4"
+            Command="{Binding ServeCoffeeCommand}"
+            Margin="0,20,0,10" />
+    <TextBlock Grid.Row="5"
+               Margin="10"
+               Grid.Column="1"
+               VerticalAlignment="Bottom"
+               HorizontalAlignment="Center"
+               Text="Enjoy your coffee... !"
+               Visibility="{Binding IsGoodByeVisible,Converter={StaticResource VisibilityConverter}}"
+               Foreground="Green"             
+                />
+
+  </Grid>
+</UserControl>

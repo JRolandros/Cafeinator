@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafeinator.App", "Cafeinator.App\Cafeinator.App.csproj", "{22E586A5-EC76-4685-8C5E-6AE1F2686AF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafeinator.Infra", "Cafeinator.Infra\Cafeinator.Infra.csproj", "{349EF1E5-0A7F-47D7-8DCC-F4F04D67ACB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafeinator.Config", "Cafeinator.Config\Cafeinator.Config.csproj", "{322990ED-3153-486E-A5C6-13AE8875966A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafeinator.DataAccess", "Cafeinator.DataAccess\Cafeinator.DataAccess.csproj", "{40FAB858-AC9F-4CB0-887D-F215EB2AD320}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafeinator.Tests", "Cafeinator.Tests\Cafeinator.Tests.csproj", "{0DBE8924-20CA-465C-B16F-96AB96C08141}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cafeinator.WebAPI", "Cafeinator.WebAPI\Cafeinator.WebAPI.csproj", "{8E964BFF-A814-4428-A299-CBE1453A1745}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22E586A5-EC76-4685-8C5E-6AE1F2686AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E586A5-EC76-4685-8C5E-6AE1F2686AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E586A5-EC76-4685-8C5E-6AE1F2686AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E586A5-EC76-4685-8C5E-6AE1F2686AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{349EF1E5-0A7F-47D7-8DCC-F4F04D67ACB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349EF1E5-0A7F-47D7-8DCC-F4F04D67ACB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349EF1E5-0A7F-47D7-8DCC-F4F04D67ACB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349EF1E5-0A7F-47D7-8DCC-F4F04D67ACB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{322990ED-3153-486E-A5C6-13AE8875966A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{322990ED-3153-486E-A5C6-13AE8875966A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{322990ED-3153-486E-A5C6-13AE8875966A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{322990ED-3153-486E-A5C6-13AE8875966A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40FAB858-AC9F-4CB0-887D-F215EB2AD320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40FAB858-AC9F-4CB0-887D-F215EB2AD320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40FAB858-AC9F-4CB0-887D-F215EB2AD320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40FAB858-AC9F-4CB0-887D-F215EB2AD320}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0DBE8924-20CA-465C-B16F-96AB96C08141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0DBE8924-20CA-465C-B16F-96AB96C08141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0DBE8924-20CA-465C-B16F-96AB96C08141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0DBE8924-20CA-465C-B16F-96AB96C08141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E964BFF-A814-4428-A299-CBE1453A1745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E964BFF-A814-4428-A299-CBE1453A1745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E964BFF-A814-4428-A299-CBE1453A1745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E964BFF-A814-4428-A299-CBE1453A1745}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

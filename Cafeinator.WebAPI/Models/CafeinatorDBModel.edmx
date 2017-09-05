@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CafeinatorDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <Function Name="AddNewUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bcode" Type="nvarchar" Mode="In" />
+          <Parameter Name="usrName" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteMenu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usrID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usrID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetAllDrinkType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="bcode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetUserLastChoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="SaveUserLastChoice" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userID" Type="int" Mode="In" />
+          <Parameter Name="drkID" Type="int" Mode="In" />
+          <Parameter Name="sugarQty" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="CafeinatorDBModelStoreContainer" />
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CafeinatorDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CafeinatorDBEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="AddNewUser" ReturnType="Collection(CafeinatorDBModel.AddNewUser_Result)">
+            <Parameter Name="bcode" Mode="In" Type="String" />
+            <Parameter Name="usrName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteMenu">
+            <Parameter Name="usrID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteUser">
+            <Parameter Name="usrID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetAllDrinkType" ReturnType="Collection(CafeinatorDBModel.GetAllDrinkType_Result)" />
+          <FunctionImport Name="GetUser" ReturnType="Collection(CafeinatorDBModel.GetUser_Result)">
+            <Parameter Name="bcode" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetUserLastChoice" ReturnType="Collection(CafeinatorDBModel.GetUserLastChoice_Result)">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="SaveUserLastChoice">
+            <Parameter Name="userID" Mode="In" Type="Int32" />
+            <Parameter Name="drkID" Mode="In" Type="Int32" />
+            <Parameter Name="sugarQty" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="AddNewUser_Result">
+          <Property Type="String" Name="BCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="usrName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="usrID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetAllDrinkType_Result">
+          <Property Type="Int32" Name="drkID" Nullable="false" />
+          <Property Type="String" Name="drkLabel" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="GetUser_Result">
+          <Property Type="String" Name="BCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="usrName" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="usrID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetUserLastChoice_Result">
+          <Property Type="Int32" Name="drkID" Nullable="false" />
+          <Property Type="String" Name="drkLabel" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="sugarQty" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CafeinatorDBModelStoreContainer" CdmEntityContainer="CafeinatorDBEntities" >
+          <FunctionImportMapping FunctionImportName="AddNewUser" FunctionName="CafeinatorDBModel.Store.AddNewUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CafeinatorDBModel.AddNewUser_Result">
+                <ScalarProperty Name="BCode" ColumnName="BCode" />
+                <ScalarProperty Name="usrName" ColumnName="usrName" />
+                <ScalarProperty Name="usrID" ColumnName="usrID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DeleteMenu" FunctionName="CafeinatorDBModel.Store.DeleteMenu" />
+          <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="CafeinatorDBModel.Store.DeleteUser" />
+          <FunctionImportMapping FunctionImportName="GetAllDrinkType" FunctionName="CafeinatorDBModel.Store.GetAllDrinkType">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CafeinatorDBModel.GetAllDrinkType_Result">
+                <ScalarProperty Name="drkID" ColumnName="drkID" />
+                <ScalarProperty Name="drkLabel" ColumnName="drkLabel" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUser" FunctionName="CafeinatorDBModel.Store.GetUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CafeinatorDBModel.GetUser_Result">
+                <ScalarProperty Name="BCode" ColumnName="BCode" />
+                <ScalarProperty Name="usrName" ColumnName="usrName" />
+                <ScalarProperty Name="usrID" ColumnName="usrID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetUserLastChoice" FunctionName="CafeinatorDBModel.Store.GetUserLastChoice">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="CafeinatorDBModel.GetUserLastChoice_Result">
+                <ScalarProperty Name="drkID" ColumnName="drkID" />
+                <ScalarProperty Name="drkLabel" ColumnName="drkLabel" />
+                <ScalarProperty Name="sugarQty" ColumnName="sugarQty" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="SaveUserLastChoice" FunctionName="CafeinatorDBModel.Store.SaveUserLastChoice" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
